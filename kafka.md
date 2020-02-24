@@ -1,4 +1,3 @@
-
 # Kafka
 * Has O(1) reads & writes
 * looks like 1 big distributed file
