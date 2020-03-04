@@ -1,0 +1,24 @@
+{
+    "databases": [
+        {"Oracle": ["Relational DBMS"]},
+        {"MySQL": ["Relational DBMS"]},
+        {"Microsoft SQL server": ["Relational DBMS"]},
+        {"PostgreSQL": ["Relational DBMS"]},
+        {"DB2": ["Relational DBMS"]},
+        {"Redis": ["Key-value store"]},
+        {"Amazon DynamoDB": ["Document store", "Key-value store"]},
+        {"Memcached": ["Relational DBMS"]},
+        {"Microsoft Azure Cosmos DB": ["Relational DBMS"]},
+        {"Hazelcast": ["Relational DBMS"]}
+        {"MongoDB": ["Document store"]},
+        {"Amazon DynamoDB": ["Document store", "Key-value store"]},
+        {"Couchbase": ["Document Store"]},
+        {"CouchDB": ["Document Store"]},
+        {"Microsoft Azure Cosmos DB": [
+            "Document Store", 
+            "Graph DBMS",
+            "Key-value store",
+            "Wide column store"
+        ]}
+    ]
+}
