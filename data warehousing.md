@@ -58,7 +58,15 @@ Types
 * **Non-Additive**: SIt stores some basic unit of measurement of a business process. (cut-to-close timestamps)
 
 ### Types of Dimensions:
-* Too many. Not particuluarly useful knowledge to me, but very interesting.
+**Conformed Dimensions** - Shared across many fact tables
+
+**Slowly changing dimensions** - A dimension that slowly changes over time
+    * SCD 0 - Ignore
+    * SCD 1 - Update/UPSERT (i.e: Name or surgery date)
+    * SCD 2 - Insert a new record into a dimension table (i.e: OR room, case status)
+    * SCD 3 - Add new column. For before + after changes in a single record.
+
+Too many. Not particuluarly useful knowledge to me, but very interesting.
 
 ## Common Schemas
 Star Schema, Snowflake Schema, and Galaxy Schema are not different. In reality, your warehouse is probably a galaxy schema that, depending on the question you get, you may draw out a diagram that looks like a snowflake/galaxy schema.
@@ -84,3 +92,16 @@ Note: Shared dimensions between fact tables are call conformed dimensions. Most 
 
 **Example**: Procedures is a fact. Blocks are a fact. Operating Room dimension & date dimensions are "conformed dimensions" because they are shared within both. This means that procedures and blocks can be correlated through these conformed dimensions.
 
+### Design
+**Tips** Use Dimensional Modeling. Use denormalization.
+1. Conceptual Model
+* Start with event.
+* Then determine grain.
+* Then dimensions. Conjoined or SCD. Identify OLAP Cubes.
+2. Logical Model.
+* Add properties.
+* PKs. FKs.
+* Design for Conjoined or slowly changing dimensions.
+* Design for OLAP cube operations.
+3. Physical models
+* Write it all out.
