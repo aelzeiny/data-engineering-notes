@@ -52,10 +52,14 @@ Types
 **Definition**:  A grain is the depth of data. A fact table is usually at a low granualirty.
 **Example**: Each row of a surgery fact table represents a surgery that occurred. This allows us to ask rich questions. "What are the most common surgeries today? Which room is the most active today? etc"
 
-### Types of Facts:
+### Types of Fact Tables:
+
+**Types of Facts**
 * **Additive**: Measures should be added to all dimensions. (Surgery Date)
 * **Semi-Additive**: Measures may be added to some dimensions and not with others. (primary procedure in a surgery)
 * **Non-Additive**: SIt stores some basic unit of measurement of a business process. (cut-to-close timestamps)
+
+**Factless Table**: This is a table that doesn't have an aggregate number. Just a business event.
 
 ### Types of Dimensions:
 **Conformed Dimensions** - Shared across many fact tables
@@ -94,6 +98,7 @@ Note: Shared dimensions between fact tables are call conformed dimensions. Most 
 
 ### Design
 **Tips** Use Dimensional Modeling. Use denormalization.
+0. Start with knowledge of consumers. Each one will be their own data mart.
 1. Conceptual Model
 * Start with event.
 * Then determine grain.
@@ -105,3 +110,4 @@ Note: Shared dimensions between fact tables are call conformed dimensions. Most 
 * Design for OLAP cube operations.
 3. Physical models
 * Write it all out.
+4. Create a meta table for all ETL/ELT

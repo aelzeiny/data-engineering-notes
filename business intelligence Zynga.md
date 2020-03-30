@@ -88,3 +88,61 @@ Tracking Stickiness, Retention, Churn, and Daily/Monthly paying users seperately
 
 **Conversion rate on store**
 * Number of store purchases / AVG DAU
+
+**High Prospect Users**
+* Users that use the app a lot, but haven't paid a penny.
+
+## Let's design a Data-Model
+**Consumers**
+Each one of these will get a Data-mart
+- C?O + Investors to know app health
+- Sales & Marketing to determine campaign effectiveness
+- PMs to know feature effectiveness
+
+### Business Health Data-Mart
+**Questions we want to ask**
+Daily Active User - Session Table
+MAU - Session table
+Retention - Session
+Churn - Session
+% Stickiness = DAU / MAU - Session Table
+Daily Sessions - Session Table
+ABPU - Session if you denormalize costs
+
+**Session Fact Table**
+- Users Dimension
+- DAU Factless Aggregate table, because it's used so often
+
+**Conformed Dimensions**: Users
+
+### Sales, Marketing Data-Mart
+**Questions we want to ask**
+- Cost per aquisition
+- Value per aquisition
+- High valued items or categories
+- Trending purchases
+
+**Sales Fact Table**
+- Product Dimension
+- Product Category Dimension (perhaps denormalize)
+- Campaign Dimension
+- Users Dimension
+
+**Conformed Dimensions**: Users, Product
+
+### PM Data-Mart
+**Questions we want to ask**
+- User engagement
+- How has X feature impacted Y product
+
+**Session Fact Table**
+- Users Dimension
+- Interactions Dimension
+    * session_id
+    * product_id
+    * item_id
+    * total_time
+- Product Snowflake Dimension
+- Items Snowflake dimension
+
+**Conformed Dimensions**: Users, Product
